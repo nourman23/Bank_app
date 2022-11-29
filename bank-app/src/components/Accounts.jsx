@@ -61,7 +61,6 @@ export const Accounts = () => {
 
   return (
     <>
-      {/* <div className="my-5 d-flex justify-content-center"> */}
       <div className="w-100 d-flex justify-content-around my-5">
         <form
           onSubmit={handleSubmit}
@@ -96,8 +95,6 @@ export const Accounts = () => {
           </label>
           <input type="submit" value="ADD" />
         </form>
-        {/* </div> */}
-
         <div
           className="shadow "
           style={{ minHeight: 450, width: "600px", textAlign: "center" }}
