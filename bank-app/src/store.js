@@ -34,10 +34,31 @@ const initState = {
       accountType: "Student accounts",
     },
   ],
+  numberOfAccounts: 5,
 };
 
+const ADD_ACCOUNT = (newAccount) => {
+  return {
+    type: "ADD_ACCOUNT",
+    payload: { newAccount },
+  };
+};
 const reducer = (state = initState, action) => {
-  return state;
+  switch (action.type) {
+    case "ADD_ACCOUNT":
+      return {
+        ...state,
+        accounts: [
+          ...state.accounts,
+          {
+            ...action.payload,
+          },
+        ],
+        numberOfAccounts: state.numberOfAccounts + 1,
+      };
+    default:
+      return state;
+  }
 };
 
 const store = createStore(reducer);
