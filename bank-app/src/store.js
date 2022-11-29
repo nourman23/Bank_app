@@ -43,6 +43,11 @@ const ADD_ACCOUNT = (newAccount) => {
     payload: { newAccount },
   };
 };
+const DELETE_ACCOUNT = () => {
+  return {
+    type: "DELETE_ACCOUNT",
+  };
+};
 const reducer = (state = initState, action) => {
   switch (action.type) {
     case "ADD_ACCOUNT":
@@ -56,6 +61,16 @@ const reducer = (state = initState, action) => {
         ],
         numberOfAccounts: state.numberOfAccounts + 1,
       };
+    case "DELETE_ACCOUNT":
+      let newArr = state.accounts.filter((ele) => {
+        return ele.id != action.payload;
+      });
+      return {
+        ...state,
+        accounts: newArr,
+        numberOfAccounts: state.numberOfAccounts - 1,
+      };
+
     default:
       return state;
   }
